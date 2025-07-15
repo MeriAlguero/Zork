@@ -31,7 +31,7 @@ public:
     void removeFromBag(const std::string& itemName);
     void showBag() const;
 
-    
+    void showDictionary() const;
 };
 
 
