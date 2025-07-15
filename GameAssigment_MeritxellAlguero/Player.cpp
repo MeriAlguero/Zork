@@ -23,6 +23,7 @@ void Player::startGame()
     system("cls");
     cout << "\n\nHello!";
     cout << "\n\nI have to find the money my father left me!\n\nHe told me I could also take some things that I need for my expedition." << endl;
+    cout << "\nHe also gave me a DICTIONARY that will help me when I need it!\n\n";
 }
 
 void Player::setCurrentRoom(Room* room) {
@@ -161,5 +162,19 @@ void Player::removeFromBag(const std::string& itemName) {
 }
 void Player::showBag() const {
     bag->showContents();
+}
+void Player::showDictionary() const {
+    cout << "\n\nCOMMAND DICTIONARY\n\n";
+    cout << "-------------------------------------\n";
+    cout << "go / walk / move [direction] - Move in a direction (north, south, east, west)\n";
+    cout << "take [item] - Take an item in the room\n";
+    cout << "drop [item] - Drop an item from your inventory\n";
+    cout << "inventory - Show items in your inventory and your bag\n";
+    cout << "put [item] in bag - Put an item into your bag\n";
+    cout << "take [item] from bag - Take an item out of your bag\n";
+    cout << "open bag / check bag - Show what's in the bag\n";
+    cout << "dictionary / help  - Show this help message\n";
+    cout << "quit / exit  - Leave the game\n";
+    cout << "-------------------------------------\n\n";
 }
 
