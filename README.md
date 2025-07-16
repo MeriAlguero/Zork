@@ -22,13 +22,13 @@ Link to my Zork like game repository: https://github.com/MeriAlguero/Zork.git
 | Command Example                                               | Description                                     |
 |---------------------------------------------------------------|-------------------------------------------------|
 | `go [direction]`  /  `walk [direction]` / `move [direction]`  | Move in a direction [south, north, east, west]  |
-| `take [item]`/ `get [item]`/ `grab [item]`                    | Pick up an item from the room                   |
-| `check [item]`/ `examine [item]`/ `inspect [item]`            | Check an item of your selection once picked     |
+| `get [item]`/ `grab [item]`                    | Pick up an item from the room                   |
+| `examine [item]`/ `inspect [item]`            | Check an item of your selection once picked     |
 | `drop [item]`                                                 | Drop an item from your inventory                |
 | `inventory`                                                   | Show all items you're carrying or have in your bag  |
 | `put [item] in bag`                                           | Store an item in your bag                       |
-| `take [item] from bag`                                        | Retrieve an item from your bag                  |
-| `open bag` / `check bag`                                      | Show all items stored in your bag               |
+| `grab [item] from bag`                                        | Retrieve an item from your bag                  |
+| `bag` / `Bag` / `open bag` / `check bag`                                      | Show all items stored in your bag               |
 | `dictionary` / `help`                                         | Show the command list                           |
 | `quit` / `exit`                                               | Exit the game                                   |
 ---
