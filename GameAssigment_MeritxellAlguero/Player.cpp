@@ -36,7 +36,7 @@ Room* Player::getCurrentRoom() const {
 
 void Player::move(const string& direction) {
 
-    const vector<string> validDirections = { "north", "south", "east", "west", "North", "South", "West", "East"};//Cheking valid directions
+    const vector<string> validDirections = { "north", "south", "east", "west", "North", "South", "West", "East" };//Cheking valid directions
     if (find(validDirections.begin(), validDirections.end(), direction) == validDirections.end()) {
         cout << "Sorry, I don't understand what direction you have said.\n";
         return;
@@ -70,12 +70,11 @@ void Player::takeItem(string itemName) {
             inventory.push_back(item);
             currentRoom->removeItem(item);
             cout << "You take the " << itemName << ".\n";
-            
+
 
             if (itemName == "money") {
                 cout << "\nI have the money I needed! I should get going!\n";
                 Sleep(1200);
-                system("cls");
                 cout << "Congratulations you have finish this short game!\n";
                 cout << "Press Enter to exit...\n";
                 cin.ignore();
@@ -84,7 +83,7 @@ void Player::takeItem(string itemName) {
             }
             return;
         }
-        
+
     }
     cout << "There is no " << itemName << " here.\n";
 }
@@ -100,7 +99,43 @@ void Player::dropItem(string itemName) {
     }
     cout << "You don't have " << itemName << ".\n";
 }
-
+void Player::checkItem(string itemName) {
+    
+    for (Item* item:inventory) {
+        if (item->getName() == itemName) {
+            if (itemName == "key") {
+                cout << "\n\n - KEY -\nGolden key with two letters engraved, SR.\nYou can use it to open a door." << endl;
+            }
+            else if (itemName =="bottle of water") {
+                cout << "\n\n - BOTTLE OF WATER -\nUnopened bottle of 500ml." << endl;
+            }
+            else if (itemName == "book") {
+                cout << "\n - BOOK -\nWELKOME TO MY TEXT ADVENTURE GAME\n\nThis game haves a total of 5 room and 6 items. You can move around and take/drop/check items.\nIt's a very short game so I hope you enjoy it\nThis game was created by Meritxell Algueró Manrique" << endl;
+                cout<< "\nMIT License\nCopyright(c)[2025][Meritxell Algueró Manrique]"
+                    "Permission is hereby granted, free of charge, to any person obtaining a copy of this softwareand associated documentation files(the 'Software'), to deal "
+                    "in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and /or sell "
+                    "copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :\n"
+                    "The above copyright noticeand this permission notice shall be included in all copies or substantial portions of the Software.\n"
+                    "THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, "
+                    "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER "
+                    "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE." << endl;
+            }
+            else if (itemName == "bandages") {
+                cout << "\n - BANDAGED -\nOld but in great condition. Usually used to bandage wounds." << endl;
+            }
+            else if (itemName == "sandwich") {
+                cout << "\n - SANDWICH -\nGreat grilled ham and cheese sandwich with butter made by your father." << endl;
+            }
+            else if (itemName == "money") {
+                cout << "\n - MONEY -\nPlain old money with the face of someone important." << endl;
+            }
+            else{ cout << "\nYou don't have that item." << endl; }
+            cout << "\n";
+            break;
+        }
+        
+    }
+}
 void Player::showInventory() const {
     if (inventory.empty()) {
         cout << "Your bag is empty.\n";
@@ -108,7 +143,7 @@ void Player::showInventory() const {
     }
     cout << "You are carrying:\n";
     for (Item* item : inventory) {
-        cout <<"- " << item->getName();
+        cout << "- " << item->getName();
         if (item == bag) {
             cout << " (bag)";
         }
@@ -165,16 +200,17 @@ void Player::showBag() const {
 }
 
 void Player::showDictionary() const {
-    cout << "\n\nCOMMAND DICTIONARY\n\n";
+    cout << "\n\n - COMMAND DICTIONARY - \n\n";
     cout << "-------------------------------------\n";
-    cout << "go / walk / move [direction] - Move in a direction (north, south, east, west)\n";
-    cout << "take [item] - Take an item in the room\n";
-    cout << "drop [item] - Drop an item from your inventory\n";
-    cout << "inventory - Show items in your inventory and your bag\n";
-    cout << "put [item] in bag - Put an item into your bag\n";
-    cout << "take [item] from bag - Take an item out of your bag\n";
-    cout << "open bag / check bag - Show what's in the bag\n";
-    cout << "dictionary / help  - Show this help message\n";
-    cout << "quit / exit  - Leave the game\n";
+    cout << "> go / walk / move [direction] - Move in a direction (north, south, east, west)\n";
+    cout << "> take/get/grab [item] - Take an item in the room\n";
+    cout << "> drop [item] - Drop an item from your inventory\n";
+    cout << "> check/examine/inspect [item] - Check the item of your selection once in your inventory\n";
+    cout << "> inventory - Show items in your inventory and your bag\n";
+    cout << "> put [item] in bag - Put an item into your bag\n";
+    cout << "> take [item] from bag - Take an item out of your bag\n";
+    cout << "> open bag / check bag - Show what's in the bag\n";
+    cout << "> dictionary / help  - Show this help message\n";
+    cout << "> quit / exit  - Leave the game\n";
     cout << "-------------------------------------\n\n";
 }

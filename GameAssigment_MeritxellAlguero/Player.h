@@ -23,6 +23,7 @@ public:
     void move(const std::string& direction);
     void takeItem(std::string itemName);
     void dropItem(std::string itemName);
+    void checkItem(std::string itemName);
     void startGame();
     void showInventory() const;
     bool hasItem(std::string itemName) const;

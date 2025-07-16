@@ -7,7 +7,7 @@
 
 class Game {
 private:
-    Room* livingRoom, * kitchen, * bedroom, * secretRoom;
+    Room* livingRoom, * kitchen, * bedroom, * secretRoom, *bathroom;
     Player player;
 
 public:
