@@ -1,5 +1,5 @@
 ## TEXT ADVENTURE GAME
-Welcome to my **Zork like Text Adventure Game**, a small console-based story in which you explore a world, collect items and find a way to win.
+Welcome to my **Zork like Text Adventure Game**, a small console-based story in which you explore a world, collect items, and find a way to win.
 This game was created as a C++ programming assignment by **Meritxell Algueró Manrique** in 2025.
 Link to my Zork like game repository: https://github.com/MeriAlguero/Zork.git
 
@@ -14,7 +14,7 @@ Link to my Zork like game repository: https://github.com/MeriAlguero/Zork.git
 ## HOW TO PLAY
 - Use simple **text commands** to explore rooms, collect items, and interact with the enviroment.
 - Move through the world by typng: 'go north', 'go south', 'go east', 'go west', and its variables.
-- You can pick up, drop and chek items form your **inventory**, also you can store items in your **bag**
+- You can pick up, drop and check items from your **inventory**, as well as store items in your **bag**.
 - Goal to finish the game: **Find the money** left by your father.
 
 ---
@@ -23,9 +23,9 @@ Link to my Zork like game repository: https://github.com/MeriAlguero/Zork.git
 |---------------------------------------------------------------|-------------------------------------------------|
 | `go [direction]`  /  `walk [direction]` / `move [direction]`  | Move in a direction [south, north, east, west]  |
 | `take [item]`/ `get [item]`/ `grab [item]`                    | Pick up an item from the room                   |
-| `check [item]`/ `examine [item]`/ `inspect [item]`            | Check an item of your selection one picked      |
+| `check [item]`/ `examine [item]`/ `inspect [item]`            | Check an item of your selection once picked     |
 | `drop [item]`                                                 | Drop an item from your inventory                |
-| `inventory`                                                   | Show all items you're carrying and in your bag  |
+| `inventory`                                                   | Show all items you're carrying or have in your bag  |
 | `put [item] in bag`                                           | Store an item in your bag                       |
 | `take [item] from bag`                                        | Retrieve an item from your bag                  |
 | `open bag` / `check bag`                                      | Show all items stored in your bag               |
@@ -33,10 +33,15 @@ Link to my Zork like game repository: https://github.com/MeriAlguero/Zork.git
 | `quit` / `exit`                                               | Exit the game                                   |
 ---
 ## HOW TO FINISH THE GAME
-1. Explore the rooms to find usful items (keu, book, bandages, etc.)
+1. Explore the rooms to find useful items (key, book, bandages, etc.)
 2. Use the **key** to unlock the tresure room / **secret room**.
-3. In the secret room, the the *money*.
+3. In the secret room, take the *money*.
 4. Once you have the money, the game will end with a victory message.
+
+---
+## STRUGGLES
+I'm more well versed in C#, so most of the time I tend to think first how I would do it in that lenguage. Due to that, sometimes I had to search the 'convertion' from one lenguage to another, however, because they share some similarities I was able to keep going.
+I made a simpler game because of this issue, but that doesn't mean that upon having more time I wouldn`t implement more features. I wanted it to be functional even if that meant not having as many features as I wished. 
 
 ---
 ## AUTHOR
