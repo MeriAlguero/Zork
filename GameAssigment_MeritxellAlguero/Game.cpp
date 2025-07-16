@@ -2,7 +2,7 @@
 #include "Item.h"
 #include "Player.h"
 #include <iostream>
-#include <Windows.h>
+#include <windows.h>
 #include <string>
 
 using namespace std;
@@ -11,7 +11,7 @@ Game::Game() {
     //Create rooms
     livingRoom = new Room("\nLIVING ROOM\n\nYou are in the living room. A table stands in the center. A door to the north.", false);
     kitchen = new Room("\nKITCHEN\n\nYou are in the kitchen. It smells like fresh bread and butter. You see a door leading to the south wall and a door in the east", false);
-    bedroom = new Room("\nBEDROOM\n\nYou are in the bedroom. There is a cozy bed with white beding and an auxiliar table. \n There is a door that goes west, another to the south and a closed one at the north wall", false);
+    bedroom = new Room("\nBEDROOM\n\nYou are in the bedroom. There is a cozy bed with white beding and an auxiliar table. \n There is a door that goes west, another to the south and a closed one at the north wall.", false);
     secretRoom = new Room("\nTRESURE ROOM\n\nYou are in the secret room. It's full of tresures!", true);
     bathroom = new Room("\nBATHROOM\n\n You are in the bathroom. Entering through the door is an empty bath with a full laundry bag. \n At the left side a toliet with a cabinet on top, in front a wash basin \n To the north you see a door.", false);
 
@@ -43,7 +43,9 @@ Game::~Game() {
     delete secretRoom;
     delete bathroom;
 }
-
+void setConsoleColor(int color) {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+}
 void Game::start() {
     string command;
     Room* lastRoom = player.getCurrentRoom();  //Track last room
@@ -55,8 +57,11 @@ void Game::start() {
     }
 
     while (true) {
+        setConsoleColor(11); //Chenging color
         cout << "> ";
         getline(cin, command);
+        setConsoleColor(7);  // Reset to default
+        
 
         if (command == "quit" || command == "exit" || command == "Quit" || command == "Exit") {
             cout << "\n\nSee you later!!\n\n" << endl;
@@ -76,7 +81,7 @@ void Game::start() {
                 lastRoom = currentRoom;  // Update lastRoom
             }
         }
-        else if (command.find("take ") == 0 || command.find("Take ") == 0 || command.find("Grab ") == 0 || command.find("grab ") == 0) {
+        else if (command.find("take ") == 0 || command.find("Take ") == 0 || command.find("Grab ") == 0 || command.find("grab ") == 0 || command.find("Get ") == 0 || command.find("get ") == 0) {
             player.takeItem(command.substr(5));
             
         }
@@ -107,7 +112,9 @@ void Game::start() {
             player.showDictionary();
         }
         else {
+            setConsoleColor(12);
             cout << "\nUnknown command.\nIf you need some aid type -> dictionary or help\n";
+            setConsoleColor(7);
         }
     }
 }
