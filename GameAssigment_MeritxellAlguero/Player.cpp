@@ -75,7 +75,6 @@ void Player::takeItem(string itemName) {
             if (itemName == "money") {
                 cout << "\nI have the money I needed! I should get going!\n";
                 Sleep(1200);
-                system("cls");
                 cout << "Congratulations you have finish this short game!\n";
                 cout << "Press Enter to exit...\n";
                 cin.ignore();
@@ -171,7 +170,7 @@ Player::~Player() {
 void Player::putInBag(const std::string& itemName) {
     if (itemName == "bag")
     {
-        cout << "\nYou can NOT put the bag inside itself!" << endl;
+        cout << "You can NOT put the bag inside itself!" << endl;
         return;
     }
     else {
@@ -183,7 +182,7 @@ void Player::putInBag(const std::string& itemName) {
                 return;
             }
         }
-        cout << "\nYou don't have " << itemName << " in your Inventory anymore.\n";
+        cout << "You don't have " << itemName << " in your Inventory anymore.\n";
     }
 }
 void Player::removeFromBag(const std::string& itemName) {
@@ -193,7 +192,7 @@ void Player::removeFromBag(const std::string& itemName) {
         cout << itemName << " has been taken out of the bag." << endl;
     }
     else {
-        cout << "\nThat item is not in your bag" << endl;
+        cout << "That item is not in your bag" << endl;
     }
 }
 void Player::showBag() const {
@@ -204,7 +203,7 @@ void Player::showDictionary() const {
     cout << "\n\n - COMMAND DICTIONARY - \n\n";
     cout << "-------------------------------------\n";
     cout << "> go / walk / move [direction] - Move in a direction (north, south, east, west)\n";
-    cout << "> take [item] - Take an item in the room\n";
+    cout << "> take/get/grab [item] - Take an item in the room\n";
     cout << "> drop [item] - Drop an item from your inventory\n";
     cout << "> check/examine/inspect [item] - Check the item of your selection once in your inventory\n";
     cout << "> inventory - Show items in your inventory and your bag\n";
