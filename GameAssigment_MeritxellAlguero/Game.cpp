@@ -61,15 +61,15 @@ void Game::start() {
         cout << "> ";
         getline(cin, command);
         setConsoleColor(7);  // Reset to default
-        
+        cout << "\n";
 
         if (command == "quit" || command == "exit" || command == "Quit" || command == "Exit") {
             cout << "\n\nSee you later!!\n\n" << endl;
             Sleep(600);
             break;
         }
-
-        else if (command.find("go ") == 0 || command.find("walk ") == 0 || command.find("move ") == 0 || command.find("Move ") == 0 || command.find("Walk ") == 0 || command.find("Go ") == 0)  {
+        
+        else if (command.find("go ") == 0 || command.find("Go ") == 0)  {
             player.move(command.substr(3));
 
             Room* currentRoom = player.getCurrentRoom();
@@ -79,6 +79,26 @@ void Game::start() {
                     cout << "You see a " << item->getName() << ".\n";
                 }
                 lastRoom = currentRoom;  // Update lastRoom
+           
+            }
+        }
+        else if (command.find("walk ") == 0 || command.find("move ") == 0 || command.find("Move ") == 0 || command.find("Walk ") == 0) {
+            player.move(command.substr(5));
+
+            Room* currentRoom = player.getCurrentRoom();
+            if (currentRoom != lastRoom) {
+                cout << "\n" << currentRoom->getDescription() << "\n";
+                for (Item* item : currentRoom->getItems()) {
+                    cout << "You see a " << item->getName() << ".\n";
+                }
+                lastRoom = currentRoom;  // Update lastRoom
+
+            }
+        }
+        else if (command == "look around") {
+            cout << "\n" << lastRoom->getDescription() << "\n";
+            for (Item* item : lastRoom->getItems()) {
+                cout << "You see a " << item->getName() << ".\n";
             }
         }
         else if (command.find("take ") == 0 || command.find("Take ") == 0 ) {
