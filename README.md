@@ -14,7 +14,7 @@ Link to my Zork like game repository: https://github.com/MeriAlguero/Zork.git
 ## HOW TO PLAY
 - Use simple **text commands** to explore rooms, collect items, and interact with the enviroment.
 - Move through the world by typng: 'go north', 'go south', 'go east', 'go west', and its variables.
-- You can pick up, drop and che items form your **inventory**, also you can store items in your **bag**
+- You can pick up, drop and chek items form your **inventory**, also you can store items in your **bag**
 - Goal to finish the game: **Find the money** left by your father.
 
 ---
