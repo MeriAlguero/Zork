@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-Bag::Bag(const std::string& name) : Item(name) {}
+Bag::Bag(const string& name) : Item(name) {}
 
 Bag::~Bag() {
 	for (Item* item : contents) {
@@ -15,7 +15,7 @@ void Bag::AddItem(Item* item) {
 	cout << item->getName() << " has been added to the bag." << endl;
 
 }
-Item* Bag::removeItem(const std::string& itemsName) {
+Item* Bag::removeItem(const string& itemsName) {
 	for (auto it = contents.begin(); it != contents.end(); it++) {
 		if ((*it)->getName() == itemsName) {
 			Item* item = *it;
@@ -26,7 +26,7 @@ Item* Bag::removeItem(const std::string& itemsName) {
 	return nullptr;
 
 }
-bool Bag::hasItem(const std::string& itemName) const {
+bool Bag::hasItem(const string& itemName) const {
 	for (Item* item : contents) {
 		if (item->getName() == itemName) { return true; }
 	}

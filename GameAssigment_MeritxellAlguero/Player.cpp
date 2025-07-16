@@ -66,35 +66,56 @@ void Player::move(const string& direction) {
 void Player::takeItem(string itemName) {
     auto& items = currentRoom->getItems();
     for (Item* item : items) {
-        if (item->getName() == itemName) {
-            inventory.push_back(item);
-            currentRoom->removeItem(item);
-            cout << "You take the " << itemName << ".\n";
+        if (itemName.length() < 5) {
+            if (item->getName() == itemName) {
+                inventory.push_back(item);
+                currentRoom->removeItem(item);
+                cout << "You take the " << itemName << ".\n";
 
 
-            if (itemName == "money") {
-                cout << "\nI have the money I needed! I should get going!\n";
-                Sleep(1200);
-                cout << "Congratulations you have finish this short game!\n";
-                cout << "Press Enter to exit...\n";
-                cin.ignore();
-                cin.get();  // Wait for Enter
-                exit(0);
+                if (itemName == "money") {
+                    cout << "\nI have the money I needed! I should get going!\n";
+                    Sleep(1200);
+                    cout << "Congratulations you have finish this short game!\n";
+                    cout << "Press Enter to exit...\n";
+                    cin.ignore();
+                    cin.get();  // Wait for Enter
+                    exit(0);
+                }
+                return;
             }
-            return;
+        }
+        else {
+            if (item->getName().find(itemName) != string::npos)//Makes a partial match
+            {
+                inventory.push_back(item);
+                currentRoom->removeItem(item);
+                cout << "You take the " << itemName << ".\n";
+                return;
+            }
         }
 
     }
-    cout << "There is no " << itemName << " here.\n";
+    cout << "Why would I want a " << itemName << ".\n";
 }
 
 void Player::dropItem(string itemName) {
     for (auto it = inventory.begin(); it != inventory.end(); ++it) {
-        if ((*it)->getName() == itemName) {
-            currentRoom->addItem(*it);
-            inventory.erase(it);
-            cout << "You drop the " << itemName << ".\n";
-            return;
+        if (itemName.length() <5) {
+            if ((*it)->getName() == itemName) {
+                currentRoom->addItem(*it);
+                inventory.erase(it);
+                cout << "You drop the " << itemName << ".\n";
+                return;
+            }
+        }
+        else {
+            if ((*it)->getName().find(itemName) != string::npos) {
+                currentRoom->addItem(*it);
+                inventory.erase(it);
+                cout << "You drop the " << itemName << ".\n";
+                return;
+            }
         }
     }
     cout << "You don't have " << itemName << ".\n";
@@ -110,8 +131,8 @@ void Player::checkItem(string itemName) {
                 cout << "\n\n - BOTTLE OF WATER -\nUnopened bottle of 500ml." << endl;
             }
             else if (itemName == "book") {
-                cout << "\n - BOOK -\nWELKOME TO MY TEXT ADVENTURE GAME\n\nThis game haves a total of 5 room and 6 items. You can move around and take/drop/check items.\nIt's a very short game so I hope you enjoy it\nThis game was created by Meritxell AlguerÃ³ Manrique" << endl;
-                cout<< "\nMIT License\nCopyright(c)[2025][Meritxell AlguerÃ³ Manrique]"
+                cout << "\n - BOOK -\nWELKOME TO MY TEXT ADVENTURE GAME\n\nThis game haves a total of 5 room and 6 items. You can move around and take/drop/check items.\nIt's a very short game so I hope you enjoy it\nThis game was created by Meritxell Algueró Manrique" << endl;
+                cout<< "\nMIT License\nCopyright(c)[2025][Meritxell Algueró Manrique]"
                     "Permission is hereby granted, free of charge, to any person obtaining a copy of this softwareand associated documentation files(the 'Software'), to deal "
                     "in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and /or sell "
                     "copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :\n"
@@ -145,12 +166,11 @@ void Player::showInventory() const {
     for (Item* item : inventory) {
         cout << "- " << item->getName();
         if (item == bag) {
-            cout << " (bag)";
+            cout << " (you may have things inside)";
         }
         cout << "\n";
     }
     cout << "\n";
-    showBag();
 }
 
 bool Player::hasItem(string itemName) const {
@@ -203,13 +223,13 @@ void Player::showDictionary() const {
     cout << "\n\n - COMMAND DICTIONARY - \n\n";
     cout << "-------------------------------------\n";
     cout << "> go / walk / move [direction] - Move in a direction (north, south, east, west)\n";
-    cout << "> take/get/grab [item] - Take an item in the room\n";
+    cout << "> take/get [item] - Take an item in the room\n";
     cout << "> drop [item] - Drop an item from your inventory\n";
-    cout << "> check/examine/inspect [item] - Check the item of your selection once in your inventory\n";
+    cout << "> examine/inspect [item] - Check the item of your selection once in your inventory\n";
     cout << "> inventory - Show items in your inventory and your bag\n";
     cout << "> put [item] in bag - Put an item into your bag\n";
-    cout << "> take [item] from bag - Take an item out of your bag\n";
-    cout << "> open bag / check bag - Show what's in the bag\n";
+    cout << "> grab [item] from bag - Take an item out of your bag\n";
+    cout << "> Bag / bag / open bag / check bag - Show what's in the bag\n";
     cout << "> dictionary / help  - Show this help message\n";
     cout << "> quit / exit  - Leave the game\n";
     cout << "-------------------------------------\n\n";
