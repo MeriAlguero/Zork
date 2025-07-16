@@ -81,9 +81,13 @@ void Game::start() {
                 lastRoom = currentRoom;  // Update lastRoom
             }
         }
-        else if (command.find("take ") == 0 || command.find("Take ") == 0 ||  command.find("Get ") == 0 || command.find("get ") == 0) {
+        else if (command.find("take ") == 0 || command.find("Take ") == 0 ) {
             player.takeItem(command.substr(5));
             
+        }
+        else if (command.find("Get ") == 0 || command.find("get ") == 0) {
+            player.takeItem(command.substr(4));
+
         }
         else if (command.find("drop ") == 0 || command.find("Drop ") == 0) {
             player.dropItem(command.substr(5));

@@ -166,7 +166,7 @@ void Player::showInventory() const {
     for (Item* item : inventory) {
         cout << "- " << item->getName();
         if (item == bag) {
-            cout << " (you may have things here)";
+            cout << " (you may have things inside)";
         }
         cout << "\n";
     }
