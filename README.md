@@ -22,8 +22,9 @@ Link to my Zork like game repository: https://github.com/MeriAlguero/Zork.git
 | Command Example                                               | Description                                     |
 |---------------------------------------------------------------|-------------------------------------------------|
 | `go [direction]`  /  `walk [direction]` / `move [direction]`  | Move in a direction [south, north, east, west]  |
-| `get [item]`/ `take [item]`                    | Pick up an item from the room                   |
-| `examine [item]`/ `inspect [item]`            | Check an item of your selection once picked     |
+|`look around`                                                  | Shows in the console what you see in the room   |
+| `get [item]`/ `take [item]`                                   | Pick up an item from the room                   |
+| `examine [item]`/ `inspect [item]`                            | Check an item of your selection once picked     |
 | `drop [item]`                                                 | Drop an item from your inventory                |
 | `inventory`                                                   | Show all items you're carrying or have in your bag  |
 | `put [item] in bag`                                           | Store an item in your bag                       |
