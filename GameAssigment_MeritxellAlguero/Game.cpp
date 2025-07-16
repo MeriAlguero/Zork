@@ -81,7 +81,7 @@ void Game::start() {
                 lastRoom = currentRoom;  // Update lastRoom
             }
         }
-        else if (command.find("take ") == 0 || command.find("Take ") == 0 || command.find("Grab ") == 0 || command.find("grab ") == 0 || command.find("Get ") == 0 || command.find("get ") == 0) {
+        else if (command.find("take ") == 0 || command.find("Take ") == 0 ||  command.find("Get ") == 0 || command.find("get ") == 0) {
             player.takeItem(command.substr(5));
             
         }
@@ -96,14 +96,14 @@ void Game::start() {
             string itemName = command.substr(4, command.find(" in bag") - 4);
             player.putInBag(itemName);
         }
-        else if (command.find("take ") == 0 && command.find(" from bag") != string::npos) {
-            string itemName = command.substr(15);
+        else if (command.find("grab ") == 0 && command.find(" from bag") != string::npos) {
+            string itemName = command.substr(5, command.find(" from bag") - 5);
             player.removeFromBag(itemName);
         }
-        else if (command == "open bag" || command == "check bag") {
+        else if (command == "open bag" || command == "check bag" || command == "bag" || command == "Bag") {
             player.showBag();
         }
-        else if (command.find("check ") == 0 || command.find("inspect ") == 0 || command.find("examine ") == 0 || command.find("Check ") == 0 || command.find("Inspect ") == 0 || command.find("Examine ") == 0) {
+        else if (command.find("inspect ") == 0 || command.find("examine ") == 0 || command.find("Inspect ") == 0 || command.find("Examine ") == 0) {
             string itemName = command.substr(command.find(" ") + 1);
             player.checkItem(itemName);
         }
