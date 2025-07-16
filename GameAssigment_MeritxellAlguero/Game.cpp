@@ -11,7 +11,7 @@ Game::Game() {
     //Create rooms
     livingRoom = new Room("\nLIVING ROOM\n\nYou are in the living room. A table stands in the center. A door to the north.", false);
     kitchen = new Room("\nKITCHEN\n\nYou are in the kitchen. It smells like fresh bread and butter. You see a door leading to the south wall and a door in the east", false);
-    bedroom = new Room("\nBEDROOM\n\nYou are in the bedroom. There is a cozy bed with white beding and an auxiliar table. \n There is a door that goes west and another one north.", false);
+    bedroom = new Room("\nBEDROOM\n\nYou are in the bedroom. There is a cozy bed with white beding and an auxiliar table. \n There is a door that goes west, another to the south and a closed one at the north wall", false);
     secretRoom = new Room("\nTRESURE ROOM\n\nYou are in the secret room. It's full of tresures!", true);
     bathroom = new Room("\nBATHROOM\n\n You are in the bathroom. Entering through the door is an empty bath with a full laundry bag. \n At the left side a toliet with a cabinet on top, in front a wash basin \n To the north you see a door.", false);
 
