@@ -131,8 +131,8 @@ void Player::checkItem(string itemName) {
                 cout << "\n\n - BOTTLE OF WATER -\nUnopened bottle of 500ml." << endl;
             }
             else if (itemName == "book") {
-                cout << "\n - BOOK -\nWELKOME TO MY TEXT ADVENTURE GAME\n\nThis game haves a total of 5 room and 6 items. You can move around and take/drop/check items.\nIt's a very short game so I hope you enjoy it\nThis game was created by Meritxell Algueró Manrique" << endl;
-                cout<< "\nMIT License\nCopyright(c)[2025][Meritxell Algueró Manrique]"
+                cout << "\n - BOOK -\nWELKOME TO MY TEXT ADVENTURE GAME\n\nThis game haves a total of 5 room and 6 items. You can move around and take/drop/check items.\nIt's a very short game so I hope you enjoy it\nThis game was created by Meritxell AlguerÃ³ Manrique" << endl;
+                cout<< "\nMIT License\nCopyright(c)[2025][Meritxell AlguerÃ³ Manrique]"
                     "Permission is hereby granted, free of charge, to any person obtaining a copy of this softwareand associated documentation files(the 'Software'), to deal "
                     "in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and /or sell "
                     "copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :\n"
@@ -223,6 +223,7 @@ void Player::showDictionary() const {
     cout << "\n\n - COMMAND DICTIONARY - \n\n";
     cout << "-------------------------------------\n";
     cout << "> go / walk / move [direction] - Move in a direction (north, south, east, west)\n";
+    cout << "> look around - Tells you what you see in the room you are.\n";
     cout << "> take/get [item] - Take an item in the room\n";
     cout << "> drop [item] - Drop an item from your inventory\n";
     cout << "> examine/inspect [item] - Check the item of your selection once in your inventory\n";
