@@ -91,8 +91,20 @@ void Player::takeItem(string itemName) {
                 inventory.push_back(item);
                 currentRoom->removeItem(item);
                 cout << "You take the " << itemName << ".\n";
+                
+
+                if (itemName == "money") {
+                    cout << "\nI have the money I needed! I should get going!\n";
+                    Sleep(1200);
+                    cout << "Congratulations you have finish this short game!\n";
+                    cout << "Press Enter to exit...\n";
+                    cin.ignore();
+                    cin.get();  // Wait for Enter
+                    exit(0);
+                }
                 return;
             }
+            
         }
 
     }
@@ -223,7 +235,7 @@ void Player::showDictionary() const {
     cout << "\n\n - COMMAND DICTIONARY - \n\n";
     cout << "-------------------------------------\n";
     cout << "> go / walk / move [direction] - Move in a direction (north, south, east, west)\n";
-    cout << "> look around - Tells you what you see in the room you are.\n";
+    cout << "> look around - Tells you what you see in the room you are.";
     cout << "> take/get [item] - Take an item in the room\n";
     cout << "> drop [item] - Drop an item from your inventory\n";
     cout << "> examine/inspect [item] - Check the item of your selection once in your inventory\n";
